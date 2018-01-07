@@ -1,6 +1,6 @@
 <ul class="list-group">
   <li class="list-group-item active new-user" routerLink="/adduser">Add new user</li>
-  <li *ngFor="let user of pagedItems" class="list-group-item">{{user.firstName}}</li>
+  <li *ngFor="let user of pagedItems" class="list-group-item">{{user.firstName + ' ' + user.lastName}}</li>
   
   <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
     <li [ngClass]="{disabled: pager.currPage === 1}">
