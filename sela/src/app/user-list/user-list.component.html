@@ -1,0 +1,16 @@
+<ul class="list-group">
+  <li class="list-group-item active new-user" routerLink="/adduser">Add new user</li>
+  <li *ngFor="let user of pagedItems" class="list-group-item">{{user.firstName}}</li>
+  
+  <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+    <li [ngClass]="{disabled: pager.currPage === 1}">
+      <a (click)="setPage(1)">First</a>
+    </li>
+    <li *ngFor="let page of pager.pages" [ngClass]="{active: pager.currPage === page}">
+      <a (click)="setPage(page)">{{ page }}</a>
+    </li>
+    <li [ngClass]="{disabled: pager.currPage === pager.numOfPages}">
+        <a (click)="setPage(pager.numOfPages)">Last</a>
+      </li>
+  </ul>
+</ul>
